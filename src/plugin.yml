@@ -1,0 +1,20 @@
+api-version: "1.13"
+author: "Thiago 'Codex' Silva"
+
+commands:
+  gs:
+    description: Show GetSpawners plugin commands usage.
+    usage: /gs reload - /gs give <player> <spawner_name> <amount>
+  gs reload:
+    description: Reloads GetSpawner plugin.
+    usage: /gs reload
+  gs give:
+    description: Gives spawner to a player.
+    usage: /gs give <player> <spawner_name> <amount>
+  gs xdebug:
+    description: Removes hologram names without a spawner
+    usage: /gs xdebug
+
+main: "me.thiagocodex.getspawners.GetSpawners"
+name: "GetSpawners"
+version: "1.0.0"
