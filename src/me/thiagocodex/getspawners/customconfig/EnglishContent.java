@@ -148,6 +148,7 @@ abstract class EnglishContent {
                     "  Phantom: '&fPhantom Spawner'\n" +
                     "  Pig: '&fPig Spawner'\n" +
                     "  Piglin: '&fPiglin Spawner'\n" +
+                    "  Piglin_Brute: '&fPiglin_Brute Spawner'\n" +
                     "  Pillager: '&fPillager Spawner'\n" +
                     "  Polar_Bear: '&fPolar_Bear Spawner'\n" +
                     "  Pufferfish: '&fPufferfish Spawner'\n" +
@@ -225,6 +226,7 @@ abstract class EnglishContent {
                     "  Phantom: '&6Type: &aPHANTOM, &eOwner: &f%owner%'\n" +
                     "  Pig: '&6Type: &aPIG, &eOwner: &f%owner%'\n" +
                     "  Piglin: '&6Type: &aPIGLIN, &eOwner: &f%owner%'\n" +
+                    "  Piglin_Brute: '&6Type: &aPIGLIN_BRUTE, &eOwner: &f%owner%'\n" +
                     "  Pillager: '&6Type: &aPILLAGER, &eOwner: &f%owner%'\n" +
                     "  Polar_Bear: '&6Type: &aPOLAR_BEAR, &eOwner: &f%owner%'\n" +
                     "  Pufferfish: '&6Type: &aPUFFERFISH, &eOwner: &f%owner%'\n" +
@@ -307,6 +309,7 @@ abstract class EnglishContent {
                     "  Phantom: '&fPhantom'\n" +
                     "  Pig: '&fPig'\n" +
                     "  Piglin: '&fPiglin'\n" +
+                    "  Piglin_Brute: '&fPiglin_Brute'\n" +
                     "  Pillager: '&fPillager'\n" +
                     "  Polar_Bear: '&fPolar_Bear'\n" +
                     "  Pufferfish: '&fPufferfish'\n" +

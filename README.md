@@ -1,7 +1,7 @@
 # GetSpawners
 Simple, and the most well-programmed and clean spawner plugin
 
-[![](https://img.shields.io/discord/677642178083946580?color=%23768ACF&label=Discord)](https://discord.gg/eCjMHUh)
+[![](https://img.shields.io/discord/677642178083946580?color=%23768ACF&label=Discord)](https://discord.gg/ZMbDcFgJ8Q)
 
 &nbsp;
 #### MOB NAMES:

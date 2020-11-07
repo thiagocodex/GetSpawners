@@ -170,6 +170,8 @@ abstract class BrazilianPortugueseContent {
                     "  Phantom: Gerador de Phantom\n" +
                     "  Pig: Gerador de Porco\n" +
                     "  Piglin-Zumbi: Gerador de Piglin-Zumbi\n" +
+                    "  Piglin: Gerador de Piglin\n" +
+                    "  Piglin_Brute: Gerador de Piglin Bárbaro\n" +
                     "  Pillager: Gerador de Saqueador\n" +
                     "  Polar_Bear: Gerador de Urso-Polar\n" +
                     "  Pufferfish: Gerador de Baiacú\n" +
@@ -246,6 +248,8 @@ abstract class BrazilianPortugueseContent {
                     "  Phantom: '&eTipo: &aPhantom, &eDono: &f%owner%'\n" +
                     "  Pig: '&eTipo: &aPorco, &eDono: &f%owner%'\n" +
                     "  Piglin-Zumbi: '&eTipo: &aPiglin-Zumbi, &eDono: &f%owner%'\n" +
+                    "  Piglin: '&eTipo: &aPiglin, &eDono: &f%owner%'\n" +
+                    "  Piglin_Brute: '&eTipo: &aPiglin Bárbaro, &eDono: &f%owner%'\n" +
                     "  Pillager: '&eTipo: &aSaqueador, &eDono: &f%owner%'\n" +
                     "  Polar_Bear: '&eTipo: &aUrso-Polar, &eDono: &f%owner%'\n" +
                     "  Pufferfish: '&eTipo: &aBaiacú, &eDono: &f%owner%'\n" +
@@ -330,6 +334,8 @@ abstract class BrazilianPortugueseContent {
                     "  Pig: Porco\n" +
                     "  Pig_Zombie: Homem-Porco-Zumbi\n" +
                     "  Piglin-Zumbi: Piglin-Zumbi\n" +
+                    "  Piglin: Piglin\n" +
+                    "  Piglin_Brute: Piglin Bárbaro\n" +
                     "  Pillager: Saqueador\n" +
                     "  Polar_Bear: Urso-Polar\n" +
                     "  Pufferfish: Baiacú\n" +

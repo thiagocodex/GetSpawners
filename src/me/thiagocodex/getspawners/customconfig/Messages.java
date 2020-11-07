@@ -147,13 +147,19 @@ public abstract class Messages implements Listener {
                 break;
             case "1.16":
             case "1.16.1":
+                Collections.addAll(versionMobs, mobs1_13);
+                Collections.addAll(versionMobs, "Cat", "Fox", "Panda", "Pillager", "Ravager", "Trader_Llama", "Wandering_Trader");
+                Collections.addAll(versionMobs, "Bee");
+                Collections.addAll(versionMobs, "Hoglin", "Piglin", "Strider", "Zoglin", "Zombified_Piglin");
+                versionMobs.remove("Zombie_Pigman");
+                break;
             case "1.16.2":
             case "1.16.3":
             case "1.16.4":
                 Collections.addAll(versionMobs, mobs1_13);
                 Collections.addAll(versionMobs, "Cat", "Fox", "Panda", "Pillager", "Ravager", "Trader_Llama", "Wandering_Trader");
                 Collections.addAll(versionMobs, "Bee");
-                Collections.addAll(versionMobs, "Hoglin", "Piglin", "Strider", "Zoglin", "Zombified_Piglin");
+                Collections.addAll(versionMobs, "Hoglin", "Piglin", "Strider", "Zoglin", "Zombified_Piglin", "Piglin_Brute");
                 versionMobs.remove("Zombie_Pigman");
         }
         Collections.sort(versionMobs);

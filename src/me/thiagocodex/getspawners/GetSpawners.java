@@ -9,6 +9,7 @@ import me.thiagocodex.getspawners.nms_1_14_R1.UpdateSpawners_1_14_R1;
 import me.thiagocodex.getspawners.nms_1_15_R1.UpdateSpawners_1_15_R1;
 import me.thiagocodex.getspawners.nms_1_16_R1.UpdateSpawners_1_16_R1;
 import me.thiagocodex.getspawners.nms_1_16_R2.UpdateSpawners_1_16_R2;
+import me.thiagocodex.getspawners.nms_1_16_R3.UpdateSpawners_1_16_R3;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -45,8 +46,11 @@ public class GetSpawners extends JavaPlugin {
                 break;
             case "1.16.2":
             case "1.16.3":
-            case "1.16.4":
                 morphable = new UpdateSpawners_1_16_R2();
+
+                break;
+            case "1.16.4":
+                morphable = new UpdateSpawners_1_16_R3();
         }
         getServer().getPluginManager().registerEvents(new ChangeSpawners(), this);
         getServer().getPluginManager().registerEvents(new CheckLatest(), this);
