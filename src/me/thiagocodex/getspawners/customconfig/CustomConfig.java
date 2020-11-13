@@ -1,21 +1,19 @@
 package me.thiagocodex.getspawners.customconfig;
 
 import me.thiagocodex.getspawners.GetSpawners;
+import org.bukkit.block.CreatureSpawner;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
-
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 
 public abstract class CustomConfig {
     public static GetSpawners getSpawners = GetSpawners.getPlugin(GetSpawners.class);
@@ -38,11 +36,14 @@ public abstract class CustomConfig {
     private static final File enSpawnersFile = new File(spawnersFolder.toFile(), "spawners_en.yml");
     private static final File ptbrSpawnersFile = new File(spawnersFolder.toFile(), "spawners_ptbr.yml");
     private static final File ptbrMobsFile = new File(mobsFolder.toFile(), "mobs_ptbr.yml");
+    private static final File logsFile = new File(getSpawnersProFolder.toFile(), "logs.txt");
 
     public static void onCreateFolderAndFiles() throws IOException {
         if (Files.notExists(getSpawnersProFolder)) {
             Files.createDirectory(getSpawnersProFolder);
         }
+
+
         if (Files.notExists(localizationFolder)) {
             Files.createDirectory(localizationFolder);
         }
@@ -82,6 +83,10 @@ public abstract class CustomConfig {
         if (Files.notExists(ptbrSpawnersFile.toPath())) {
             Files.createFile(ptbrSpawnersFile.toPath());
             BrazilianPortugueseContent.writePtbrSpawnersContent(ptbrSpawnersFile.toPath());
+        }
+
+        if (Files.notExists(logsFile.toPath())) {
+            Files.createFile(logsFile.toPath());
         }
     }
 
@@ -129,6 +134,36 @@ public abstract class CustomConfig {
 
         Messages.reloadConfig();
     }
+
+
+    public static void spawnerMiningData(Player player, CreatureSpawner creatureSpawner) {
+
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("HH:mm:ss");
+
+        Date date = new Date();
+        String dateTime = simpleDateFormat.format(date.getTime());
+        String dateTime2 = simpleDateFormat2.format(date.getTime());
+        String uuid = player.getUniqueId().toString();
+        String world = player.getWorld().getName();
+        String playerName = player.getName();
+        String locationX = Integer.toString(creatureSpawner.getBlock().getLocation().getBlockX());
+        String locationY = Integer.toString(creatureSpawner.getBlock().getLocation().getBlockY());
+        String locationZ = Integer.toString(creatureSpawner.getBlock().getLocation().getBlockZ());
+        String spawnedType = creatureSpawner.getSpawnedType().name();
+
+        try {
+
+            FileWriter writer = new FileWriter(logsFile, true);
+            writer.write(playerName + " (" + uuid + ") pegou spawner de " + spawnedType + " em: " + world + ": " + locationX + " " + locationY + " " + locationZ + " em: " + dateTime + " às: " + dateTime2 + System.getProperty("line.separator"));
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private static void configContent() {
         try {
