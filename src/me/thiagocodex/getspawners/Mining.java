@@ -1,6 +1,7 @@
 package me.thiagocodex.getspawners;
 
 import me.thiagocodex.getspawners.customconfig.CustomConfig;
+import me.thiagocodex.getspawners.customconfig.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.block.CreatureSpawner;
@@ -39,10 +40,12 @@ public class Mining extends DropSpawners {
                                 cancelBlockBreak(event);
                                 if (randomNum <= j) {
                                     block.getWorld().dropItemNaturally(event.getBlock().getLocation(), itemStack);
-                                    CreatureSpawner creatureSpawner = (CreatureSpawner) event.getBlock().getState();
 
-                                    if (creatureSpawner.getMinSpawnDelay() == 200) {
-                                        CustomConfig.spawnerMiningData(event.getPlayer(), creatureSpawner);
+                                    if(canLog) {
+                                        CreatureSpawner creatureSpawner = (CreatureSpawner) event.getBlock().getState();
+                                        if (creatureSpawner.getMinSpawnDelay() == 200) {
+                                            CustomConfig.spawnerMiningData(event.getPlayer(), creatureSpawner);
+                                        }
                                     }
 
                                     if (j != 100) {
@@ -57,10 +60,12 @@ public class Mining extends DropSpawners {
                                 if (j < 10) {
                                     cancelBlockBreak(event);
                                     block.getWorld().dropItemNaturally(event.getBlock().getLocation(), itemStack);
-                                    CreatureSpawner creatureSpawner = (CreatureSpawner) event.getBlock().getState();
 
-                                    if (creatureSpawner.getMinSpawnDelay() == 200) {
-                                        CustomConfig.spawnerMiningData(event.getPlayer(), creatureSpawner);
+                                    if(canLog) {
+                                        CreatureSpawner creatureSpawner = (CreatureSpawner) event.getBlock().getState();
+                                        if (creatureSpawner.getMinSpawnDelay() == 200) {
+                                            CustomConfig.spawnerMiningData(event.getPlayer(), creatureSpawner);
+                                        }
                                     }
                                     if (i != 100) {
                                         player.sendMessage(PREFIX + " " + LUCKY);

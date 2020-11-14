@@ -12,8 +12,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.Objects;
+import java.util.TimeZone;
 
 public abstract class CustomConfig {
     public static GetSpawners getSpawners = GetSpawners.getPlugin(GetSpawners.class);
@@ -24,7 +26,7 @@ public abstract class CustomConfig {
     private static FileConfiguration ptbrMessages;
     private static FileConfiguration ptbrSpawners;
     private static FileConfiguration ptbrMobs;
-    private static final Path getSpawnersProFolder = Paths.get(getSpawners.getDataFolder().getPath());
+    private static final Path getSpawnersFolder = Paths.get(getSpawners.getDataFolder().getPath());
     private static final Path localizationFolder = Paths.get(getSpawners.getDataFolder().getPath(), "localization");
     private static final Path messagesFolder = Paths.get(getSpawners.getDataFolder().getPath(), "localization", "messages");
     private static final Path spawnersFolder = Paths.get(getSpawners.getDataFolder().getPath(), "localization", "spawners");
@@ -36,13 +38,13 @@ public abstract class CustomConfig {
     private static final File enSpawnersFile = new File(spawnersFolder.toFile(), "spawners_en.yml");
     private static final File ptbrSpawnersFile = new File(spawnersFolder.toFile(), "spawners_ptbr.yml");
     private static final File ptbrMobsFile = new File(mobsFolder.toFile(), "mobs_ptbr.yml");
-    private static final File logsFile = new File(getSpawnersProFolder.toFile(), "logs.txt");
+    private static final File logsFile = new File(getSpawnersFolder.toFile(), "logs.txt");
+
 
     public static void onCreateFolderAndFiles() throws IOException {
-        if (Files.notExists(getSpawnersProFolder)) {
-            Files.createDirectory(getSpawnersProFolder);
+        if (Files.notExists(getSpawnersFolder)) {
+            Files.createDirectory(getSpawnersFolder);
         }
-
 
         if (Files.notExists(localizationFolder)) {
             Files.createDirectory(localizationFolder);
@@ -88,6 +90,7 @@ public abstract class CustomConfig {
         if (Files.notExists(logsFile.toPath())) {
             Files.createFile(logsFile.toPath());
         }
+
     }
 
     public static FileConfiguration getConfig() {
@@ -138,9 +141,9 @@ public abstract class CustomConfig {
 
     public static void spawnerMiningData(Player player, CreatureSpawner creatureSpawner) {
 
-
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("HH:mm:ss");
+        TimeZone.setDefault(TimeZone.getTimeZone(ZoneId.of(Messages.zoneId)));
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(Messages.datePattern);
+        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat(Messages.timePattern);
 
         Date date = new Date();
         String dateTime = simpleDateFormat.format(date.getTime());
@@ -156,7 +159,18 @@ public abstract class CustomConfig {
         try {
 
             FileWriter writer = new FileWriter(logsFile, true);
-            writer.write(playerName + " (" + uuid + ") pegou spawner de " + spawnedType + " em: " + world + ": " + locationX + " " + locationY + " " + locationZ + " em: " + dateTime + " às: " + dateTime2 + System.getProperty("line.separator"));
+            writer.write(Messages.logOutput
+                    .replaceAll("%player_name%", playerName)
+                    .replaceAll("%player_uuid%", uuid)
+                    .replaceAll("%spawned_type%", spawnedType)
+                    .replaceAll("%world_name%", world)
+                    .replaceAll("%x%", locationX)
+                    .replaceAll("%y%", locationY)
+                    .replaceAll("%z%", locationZ)
+                    .replaceAll("%date%", dateTime)
+                    .replaceAll("%time%", dateTime2
+                            + System.getProperty("line.separator")));
+
             writer.flush();
             writer.close();
         } catch (IOException e) {
@@ -168,7 +182,15 @@ public abstract class CustomConfig {
     private static void configContent() {
         try {
             Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(configFile), StandardCharsets.UTF_8));
-            writer.write("# If enabled is set as true, it will allow to mine spawners with or without enchantments, just any netherite pickaxe\n" +
+            writer.write("# Select zone, date & time format to write data in logs.txt file always a player mine an original spawner; you can also change/translate the output message\n" +
+                    "Log:\n" +
+                    "  Enabled: true\n" +
+                    "  ZoneId: 'America/Sao_Paulo' #https://docs.oracle.com/middleware/12212/wcs/tag-ref/MISC/TimeZones.html\n" +
+                    "  DatePattern: 'dd-MM-yyyy'\n" +
+                    "  TimePattern: 'HH:mm:ss z'\n" +
+                    "  Output: '%player_name% (%player_uuid%) mined a(n) %spawned_type% spawner in (%world_name%: %x% %y% %z%) at: %date% %time%'\n" +
+                    "\n" +
+                    "# If enabled is set as true, it will allow to mine spawners with or without enchantments, just any netherite pickaxe\n" +
                     "# If silk_touch_required is set as true, you'll mine only if your netherite pick have been enchanted with silk touch\n" +
                     "Netherite_Pickaxe:\n" +
                     "  Enabled: true\n" +
