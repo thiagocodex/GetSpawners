@@ -185,8 +185,8 @@ public abstract class CustomConfig {
             writer.write("# Select zone, date & time format to write data in logs.txt file always a player mine an original spawner; you can also change/translate the output message\n" +
                     "Log:\n" +
                     "  Enabled: true\n" +
-                    "  ZoneId: 'America/Sao_Paulo' #https://docs.oracle.com/middleware/12212/wcs/tag-ref/MISC/TimeZones.html\n" +
-                    "  DatePattern: 'dd-MM-yyyy'\n" +
+                    "  ZoneId: 'America/Chicago' #https://docs.oracle.com/middleware/12212/wcs/tag-ref/MISC/TimeZones.html\n" +
+                    "  DatePattern: 'MM-dd-yyyy'\n" +
                     "  TimePattern: 'HH:mm:ss z'\n" +
                     "  Output: '%player_name% (%player_uuid%) mined a(n) %spawned_type% spawner in (%world_name%: %x% %y% %z%) at: %date% %time%'\n" +
                     "\n" +
