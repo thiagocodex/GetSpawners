@@ -3,6 +3,7 @@ package me.thiagocodex.getspawners;
 import me.thiagocodex.getspawners.customconfig.CustomConfig;
 import me.thiagocodex.getspawners.customconfig.Messages;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import org.bukkit.Bukkit;
@@ -22,7 +23,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class SpawnerStack extends Messages {
     @EventHandler
-    private void onBlockPlace(BlockPlaceEvent event) {
+    private void onBlockPlace(BlockPlaceEvent event) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         Player player = event.getPlayer();
         Block blockAgainst = event.getBlockAgainst();
         Block blockPlaced = event.getBlockPlaced();
@@ -54,13 +55,9 @@ public class SpawnerStack extends Messages {
                         String amount = Integer.toString(spawnerAmount);
                         String displayName = inHandSpawnerSpawnedType + " " + amount + "X";
                         if (spawnerPlaced.getMinSpawnDelay() == 201 || spawnerPlaced.getMinSpawnDelay() == 200 && spawnerPlaced.getSpawnCount() == 4) {
-                            int x = blockAgainst.getX();
-                            int y = blockAgainst.getY();
-                            int z = blockAgainst.getZ();
-                            player.getWorld().setGameRule(GameRule.SEND_COMMAND_FEEDBACK, false);
-                            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "summon minecraft:armor_stand " +
-                                    x + " " + y + " " + z + " " + "{" + "Invisible:1," + " CustomName:\"\\\"" + displayName + "\\\"\", CustomNameVisible:1, NoGravity:1, Small:1}");
-                            player.getWorld().setGameRule(GameRule.SEND_COMMAND_FEEDBACK, true);
+
+                            EntitySpawnTest.spawn(displayName, blockAgainst.getLocation());
+
                         } else if (spawnerAmount >= 2) {
                             List<Entity> entities = blockAgainst.getWorld().getEntities();
                             for (Entity armorStand : entities) {
