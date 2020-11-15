@@ -2,13 +2,7 @@ package me.thiagocodex.getspawners;
 
 import me.thiagocodex.getspawners.customconfig.CustomConfig;
 import me.thiagocodex.getspawners.customconfig.Messages;
-
-import java.lang.reflect.InvocationTargetException;
-import java.util.List;
-
-import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
-import org.bukkit.GameRule;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -21,9 +15,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.List;
+
 public class SpawnerStack extends Messages {
     @EventHandler
-    private void onBlockPlace(BlockPlaceEvent event) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    private void onBlockPlace(BlockPlaceEvent event) {
         Player player = event.getPlayer();
         Block blockAgainst = event.getBlockAgainst();
         Block blockPlaced = event.getBlockPlaced();
@@ -51,12 +47,17 @@ public class SpawnerStack extends Messages {
                                 false);
                         String inHandSpawnerSpawnedType = color(CustomConfig.getSpawners().getString("Spawner_Name." + spawnedType));
                         int spawnerAmount = spawnerPlaced.getMinSpawnDelay() == 200 ? 2 : spawnerPlaced.getMinSpawnDelay() - 199;
-                        Particles.showParticles(spawnerAmount, blockAgainst, player);
+
+                        if(isParticleAndSound){
+                            Particles.showParticles(spawnerAmount, blockAgainst, player);
+                        }
+
+
                         String amount = Integer.toString(spawnerAmount);
                         String displayName = inHandSpawnerSpawnedType + " " + amount + "X";
                         if (spawnerPlaced.getMinSpawnDelay() == 201 || spawnerPlaced.getMinSpawnDelay() == 200 && spawnerPlaced.getSpawnCount() == 4) {
 
-                            EntitySpawnTest.spawn(displayName, blockAgainst.getLocation());
+                            EntitySpawn.spawn(displayName, blockAgainst.getLocation());
 
                         } else if (spawnerAmount >= 2) {
                             List<Entity> entities = blockAgainst.getWorld().getEntities();

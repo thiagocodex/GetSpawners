@@ -16,7 +16,9 @@ public class Hologram extends DropSpawners {
                 String amount = Integer.toString(creatureSpawner.getMinSpawnDelay() - 201);
                 String displayName = spawnedType + " " + amount + "X";
                 entity.setCustomName(color(displayName));
-                Particles.showParticles(Integer.parseInt(amount) + 1, creatureSpawner.getBlock(), event.getPlayer());
+                if (isParticleAndSound) {
+                    Particles.showParticles(Integer.parseInt(amount) + 1, creatureSpawner.getBlock(), event.getPlayer());
+                }
             }
         }
     }
@@ -28,6 +30,8 @@ public class Hologram extends DropSpawners {
                 entity.remove();
             }
         }
-        Particles.showParticles(2, creatureSpawner.getBlock(), event.getPlayer());
+        if (isParticleAndSound) {
+            Particles.showParticles(2, creatureSpawner.getBlock(), event.getPlayer());
+        }
     }
 }

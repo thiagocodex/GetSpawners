@@ -211,6 +211,27 @@ public abstract class CustomConfig {
                     "  Enabled: false\n" +
                     "  Silk_Touch_Required: false\n" +
                     "\n" +
+                    "# Select particle and sound to show/play always a spawner is put above another one (stacked)\n" +
+                    "Particles:\n" +
+                    "  Enabled: true\n" +
+                    "  Particle_And_Sound:\n" +
+                    "  #https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Particle.html\n" +
+                    "  #https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html\n" +
+                    "    - VILLAGER_HAPPY, AMBIENT_CAVE        #2 \n" +
+                    "    - FLAME, AMBIENT_CAVE                 #3\n" +
+                    "    - FIREWORKS_SPARK, AMBIENT_CAVE       #4\n" +
+                    "    - CRIT_MAGIC, AMBIENT_CAVE            #5\n" +
+                    "    - CLOUD, AMBIENT_CAVE                 #6\n" +
+                    "    - END_ROD, AMBIENT_CAVE               #7\n" +
+                    "    - SPELL, AMBIENT_CAVE                 #8\n" +
+                    "    - PORTAL, AMBIENT_CAVE                #9\n" +
+                    "    - TOTEM, AMBIENT_CAVE                 #10\n" +
+                    "    - DRAGON_BREATH, AMBIENT_CAVE         #11\n" +
+                    "    - SNOWBALL, AMBIENT_CAVE              #12\n" +
+                    "    - LAVA, AMBIENT_CAVE                  #13\n" +
+                    "    - HEART, AMBIENT_CAVE                 #14\n" +
+                    "    - VILLAGER_ANGRY, AMBIENT_CAVE        #15\n" +
+                    "\n" +
                     "\n" +
                     "# The option to allow mob spawners change\n" +
                     "# By right clicking spawner with a spawn egg in main hand to change it, is the default as natively\n" +

@@ -192,10 +192,12 @@ public abstract class Messages implements Listener {
     protected static int subtractVan;
     protected static int addVan;
     protected static boolean canLog;
+    protected static boolean isParticleAndSound;
     protected static String zoneId;
     protected static String datePattern;
     protected static String timePattern;
     protected static String logOutput;
+    protected static List<String> particleAndSound = new ArrayList<>();
     public static String PREFIX;
     public static String ENABLED;
     protected static String RELOADED;
@@ -251,6 +253,8 @@ public abstract class Messages implements Listener {
         datePattern = CustomConfig.getConfig().getString("Log.DatePattern");
         timePattern = CustomConfig.getConfig().getString("Log.TimePattern");
         logOutput = color(CustomConfig.getConfig().getString("Log.Output"));
+        particleAndSound = CustomConfig.getConfig().getStringList("Particles.Particle_And_Sound");
+        isParticleAndSound = CustomConfig.getConfig().getBoolean("Particles.Enabled");
         //Plugin runtime messages
         PREFIX = color(CustomConfig.getMessages().getString("Plugin.Prefix"));
         ENABLED = color(CustomConfig.getMessages().getString("Console_Messages.Plugin_Enabled"));
