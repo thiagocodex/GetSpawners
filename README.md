@@ -10,7 +10,7 @@ bat, bee, blaze, cat, cave_spider, chicken, cod, cow, creeper, dolphin, donkey, 
 &nbsp;
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Need a host? This is the best! For me, ping 0-5ms, mostly 0ms
-[![](https://apexminecrafthosting.com/images/apex-hosting-mobile.png)](https://billing.apexminecrafthosting.com/aff.php?aff=2030)
+[![](https://cdn.apexminecrafthosting.com/img/theme/apex-hosting-mobile.png)](https://billing.apexminecrafthosting.com/aff.php?aff=2030)
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tested for an year, 99% uptime, for many countries, awesome support
@@ -58,6 +58,6 @@ You'll need a permission plugin that allows you to set groups perms, individual 
 
 &nbsp;
 
-[![](https://apexminecrafthosting.com/images/apex-hosting-skyscrapper.png)](https://billing.apexminecrafthosting.com/aff.php?aff=2030)
+[![](https://cdn.apexminecrafthosting.com/img/theme/apex-hosting-skyscrapper.png)](https://billing.apexminecrafthosting.com/aff.php?aff=2030)
 
 [what people are saying](https://apexminecrafthosting.com/testimonials/)
