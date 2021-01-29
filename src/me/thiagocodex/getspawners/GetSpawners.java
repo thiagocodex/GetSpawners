@@ -50,6 +50,7 @@ public class GetSpawners extends JavaPlugin {
 
                 break;
             case "1.16.4":
+            case "1.16.5":
                 morphable = new UpdateSpawners_1_16_R3();
         }
         getServer().getPluginManager().registerEvents(new ChangeSpawners(), this);

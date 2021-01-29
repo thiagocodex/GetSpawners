@@ -49,6 +49,7 @@ public abstract class Messages implements Listener {
             case "1.16.2":
             case "1.16.3":
             case "1.16.4":
+            case "1.16.5":
                 return itemStack.getItemMeta().getPersistentDataContainer()
                         .get(new NamespacedKey(CustomConfig.getSpawners, "SpawnerType"), PersistentDataType.STRING);
         }
@@ -90,6 +91,7 @@ public abstract class Messages implements Listener {
             case "1.16.2":
             case "1.16.3":
             case "1.16.4":
+            case "1.16.5":
                 itemStack = new ItemStack(Material.SPAWNER, 1);
                 itemMeta = itemStack.getItemMeta();
                 itemMeta.setDisplayName(ChatColor.WHITE + spawnerDisplayName);
@@ -156,6 +158,7 @@ public abstract class Messages implements Listener {
             case "1.16.2":
             case "1.16.3":
             case "1.16.4":
+            case "1.16.5":
                 Collections.addAll(versionMobs, mobs1_13);
                 Collections.addAll(versionMobs, "Cat", "Fox", "Panda", "Pillager", "Ravager", "Trader_Llama", "Wandering_Trader");
                 Collections.addAll(versionMobs, "Bee");

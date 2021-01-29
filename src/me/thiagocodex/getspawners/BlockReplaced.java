@@ -21,7 +21,8 @@ public class BlockReplaced extends Messages {
                 || bukkitVersion.equalsIgnoreCase("1.16.1")
                 || bukkitVersion.equalsIgnoreCase("1.16.2")
                 || bukkitVersion.equalsIgnoreCase("1.16.3")
-                || bukkitVersion.equalsIgnoreCase("1.16.4")) {
+                || bukkitVersion.equalsIgnoreCase("1.16.4")
+                || bukkitVersion.equalsIgnoreCase("1.16.5")) {
             return material == Material.valueOf("WARPED_ROOTS")
                     || material == Material.valueOf("CRIMSON_ROOTS")
                     || material == Material.valueOf("NETHER_SPROUTS");

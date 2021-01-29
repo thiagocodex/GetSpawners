@@ -61,6 +61,7 @@ public class GiveSpawners extends Messages {
             case "1.16.2":
             case "1.16.3":
             case "1.16.4":
+            case "1.16.5":
                 itemMeta.getPersistentDataContainer().set(new NamespacedKey(CustomConfig.getSpawners, "SpawnerType"), PersistentDataType.STRING, firstCapitalWord(spawnerType));
                 itemStack.setItemMeta(itemMeta);
 

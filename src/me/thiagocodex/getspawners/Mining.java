@@ -1,8 +1,6 @@
 package me.thiagocodex.getspawners;
 
 import me.thiagocodex.getspawners.customconfig.CustomConfig;
-import me.thiagocodex.getspawners.customconfig.Messages;
-import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.block.CreatureSpawner;
 import org.bukkit.event.block.BlockBreakEvent;

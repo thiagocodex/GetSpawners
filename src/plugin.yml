@@ -17,4 +17,4 @@ commands:
 
 main: "me.thiagocodex.getspawners.GetSpawners"
 name: "GetSpawners"
-version: "1.0.4"
+version: "1.0.5"
